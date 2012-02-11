@@ -63,9 +63,9 @@ namespace CsharpDatabase.Localization
 					if(Locale == "huHU")
 						return "Nem ezen adatbázis lett kiválasztva!";
 					else if(Locale == "enUS")
-						return "";
+						return "Not this database were choosen!";
 					else
-						return "";
+						return "Not this database were choosen!";
 				}
 				default:
 					return string.Empty;
