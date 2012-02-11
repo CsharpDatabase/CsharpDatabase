@@ -19,6 +19,7 @@
 
 using System;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Data;
 using System.Data.SQLite;
 using System.Threading;
@@ -59,6 +60,18 @@ namespace CsharpDatabase
 		public void Locale(string locale)
 		{
 			sLConsole.Locale = locale;
+		}
+
+		public string Escape(string text)
+		{
+			if(text.IsNull() || text == string.Empty)
+				return string.Empty;
+
+			text = Regex.Replace(text, @"'", @"\'");
+			text = Regex.Replace(text, @"\\'", @" \'");
+			text = Regex.Replace(text, @"`", @"\`");
+			text = Regex.Replace(text, @"\\`", @" \`");
+			return text;
 		}
 
 		public void Mysql(string Host, string User, string Password, string Database)

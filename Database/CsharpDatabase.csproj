@@ -52,7 +52,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <None Include="sqlite3.dll">
+    <None Include="..\Dependencies\sqlite3.dll">
+      <Link>sqlite3.dll</Link>
       <Gettext-ScanForTranslations>false</Gettext-ScanForTranslations>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
