@@ -131,6 +131,9 @@ namespace CsharpDatabase
 			{
 				if(!Connection.Ping())
 					Connection.Open();
+
+				if(Connection.State == ConnectionState.Broken || Connection.State == ConnectionState.Closed)
+					throw new CDatabaseException(sLConsole.MySql("Text3"));
 			}
 			catch(MySqlException m)
 			{
@@ -140,7 +143,7 @@ namespace CsharpDatabase
 
 		private void Crash(MySqlException m)
 		{
-			throw new CDatabaseException(string.Format(sLConsole.MySql("Text3"), m.Message));
+			throw new CDatabaseException(string.Format(sLConsole.MySql("Text2"), m.Message));
 		}
 
 		public bool Update(string sql)

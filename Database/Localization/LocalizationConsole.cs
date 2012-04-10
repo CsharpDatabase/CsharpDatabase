@@ -94,6 +94,15 @@ namespace CsharpDatabase.Localization
 					else
 						return "Query error: {0}";
 				}
+				case "Text3":
+				{
+					if(Locale == "huHU")
+						return "Sql kapcsolat összeomlott.";
+					else if(Locale == "enUS")
+						return "Sql connection crash.";
+					else
+						return "Sql connection crash.";
+				}
 				default:
 					return string.Empty;
 			}
