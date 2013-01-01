@@ -79,7 +79,7 @@ namespace CsharpDatabase
 			}
 		}
 
-		public DataTable Query(string query)
+		public DataTable Query(string query, bool logerror = true)
 		{
 			try
 			{
@@ -99,7 +99,7 @@ namespace CsharpDatabase
 			}
 			catch(MySqlException m)
 			{
-				Crash(m);
+				Crash(m, logerror);
 				return null;
 			}
 		}
@@ -110,7 +110,7 @@ namespace CsharpDatabase
 			return !table.Equals(null) && table.Rows.Count > 0 ? table.Rows[0] : null;
 		}
 
-		private void ExecuteNonQuery(string sql)
+		private void ExecuteNonQuery(string sql, bool logerror = true)
 		{
 			try
 			{
@@ -121,7 +121,7 @@ namespace CsharpDatabase
 			}
 			catch(MySqlException m)
 			{
-				Crash(m);
+				Crash(m, logerror);
 			}
 		}
 
@@ -137,13 +137,14 @@ namespace CsharpDatabase
 			}
 			catch(MySqlException m)
 			{
-				Crash(m);
+				Crash(m, true);
 			}
 		}
 
-		private void Crash(MySqlException m)
+		private void Crash(MySqlException m, bool logerror)
 		{
-			throw new CDatabaseException(string.Format(sLConsole.MySql("Text2"), m.Message));
+			if(logerror)
+				throw new CDatabaseException(string.Format(sLConsole.MySql("Text2"), m.Message));
 		}
 
 		public bool Update(string sql)
@@ -244,6 +245,11 @@ namespace CsharpDatabase
 			{
 				return false;
 			}
+		}
+
+		public bool IsCreatedTable(string Table)
+		{
+			return !Query(string.Format("SHOW CREATE TABLE {0}", Table), false).IsNull();
 		}
 	}
 }

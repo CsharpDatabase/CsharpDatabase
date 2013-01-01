@@ -63,7 +63,7 @@ namespace CsharpDatabase
 		/// </summary>
 		/// <param name="sql">The query</param>
 		/// <returns>Result from the database.</returns>
-		public DataTable Query(string query)
+		public DataTable Query(string query, bool logerror = true)
 		{
 			try
 			{
@@ -83,7 +83,7 @@ namespace CsharpDatabase
 			}
 			catch(SQLiteException s)
 			{
-				Crash(s);
+				Crash(s, logerror);
 				return null;
 			}
 		}
@@ -99,7 +99,7 @@ namespace CsharpDatabase
 			return !table.Equals(null) && table.Rows.Count > 0 ? table.Rows[0] : null;
 		}
 
-		private void ExecuteNonQuery(string sql)
+		private void ExecuteNonQuery(string sql, bool logerror = true)
 		{
 			try
 			{
@@ -110,7 +110,7 @@ namespace CsharpDatabase
 			}
 			catch(SQLiteException s)
 			{
-				Crash(s);
+				Crash(s, logerror);
 			}
 		}
 
@@ -123,13 +123,14 @@ namespace CsharpDatabase
 			}
 			catch(SQLiteException s)
 			{
-				Crash(s);
+				Crash(s, true);
 			}
 		}
 
-		private void Crash(SQLiteException s)
+		private void Crash(SQLiteException s, bool logerror)
 		{
-			throw new CDatabaseException(string.Format(sLConsole.SQLite("Text2"), s.Message));
+			if(logerror)
+				throw new CDatabaseException(string.Format(sLConsole.SQLite("Text2"), s.Message));
 		}
 
 		public bool Update(string sql)

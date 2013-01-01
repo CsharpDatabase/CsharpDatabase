@@ -34,7 +34,7 @@ using System.Runtime.InteropServices;
 #endif
 [assembly: AssemblyCompany("Megax Productions")]
 [assembly: AssemblyProduct("CsharpDatabase")]
-[assembly: AssemblyCopyright("Copyright (C) 2012 Megax <http://megax.yeahunter.hu/>")]
+[assembly: AssemblyCopyright("Copyright (C) 2012-2013 Megax <http://megax.yeahunter.hu/>")]
 [assembly: AssemblyTrademark("GNU General Public License")]
 
 [assembly: CLSCompliant(true)]
@@ -54,5 +54,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.2")]
-[assembly: AssemblyFileVersion("1.0.2.0")]
+[assembly: AssemblyVersion("1.0.3")]
+[assembly: AssemblyFileVersion("1.0.3.0")]
