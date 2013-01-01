@@ -1,7 +1,7 @@
 /*
  * This file is part of CsharpDatabase.
  * 
- * Copyright (C) 2012 Megax <http://www.megaxx.info/>
+ * Copyright (C) 2012-2013 Megax <http://megax.yeahunter.hu/>
  * 
  * Schumix is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,9 +14,8 @@
  * GNU General Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License
- * along with Schumix.  If not, see <http://www.gnu.org/licenses/>.
+ * along with CsharpDatabase.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 
 using System;
 

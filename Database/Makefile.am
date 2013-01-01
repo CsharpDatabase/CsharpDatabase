@@ -74,8 +74,7 @@ EXTRAS = \
 
 REFERENCES =  \
 	System \
-	System.Data \
-	System.Core
+	System.Data
 
 DLL_REFERENCES =  \
 	../Dependencies/MySql.Data.dll \
