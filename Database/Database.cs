@@ -67,10 +67,142 @@ namespace CsharpDatabase
 			if(text.IsNull() || text == string.Empty)
 				return string.Empty;
 
-			text = Regex.Replace(text, @"'", @"\'");
-			text = Regex.Replace(text, @"\\'", @" \'");
-			text = Regex.Replace(text, @"`", @"\`");
-			text = Regex.Replace(text, @"\\`", @" \`");
+			if(_type == DatabaseType.SQLite)
+			{
+				var split = text.Split('\'');
+				if(split.Length > 1)
+				{
+					int x = 0;
+					var sb = new StringBuilder();
+
+					foreach(var s in split)
+					{
+						x++;
+
+						if(s.Length == 0 && x != split.Length)
+							sb.Append(@"''");
+						else if(s.Length == 1)
+						{
+							if(s.Substring(0, 1) != @"'")
+							{
+								sb.Append(s);
+								sb.Append(@"''");
+							}
+							else
+								sb.Append(@"' ''");
+						}
+						else
+						{
+							int i = 0;
+							string ss = s;
+
+							for(;;)
+							{
+								if(ss.Length > 0 && ss.Substring(ss.Length-1) != @"'")
+								{
+									if(ss.Length-1 > 0)
+										sb.Append(ss.Substring(0, ss.Length));
+
+									for(int a = 0; a < i; a++)
+										sb.Append(@"'");
+
+									if(x != split.Length && i % 2 == 0)
+										sb.Append(@"''");
+									else if(x != split.Length)
+										sb.Append(@" ''");
+
+									break;
+								}
+								else if(ss.Length <= 0)
+								{
+									for(int a = 0; a < i; a++)
+										sb.Append(@"'");
+
+									if(x != split.Length && i % 2 == 0)
+										sb.Append(@"''");
+									else if(x != split.Length)
+										sb.Append(@" ''");
+
+									break;
+								}
+
+								i++;
+								ss = ss.Remove(ss.Length-1);
+							}
+						}
+					}
+
+					text = sb.ToString();
+				}
+			}
+			else
+			{
+				var split = text.Split('\'');
+				if(split.Length > 1)
+				{
+					int x = 0;
+					var sb = new StringBuilder();
+
+					foreach(var s in split)
+					{
+						x++;
+
+						if(s.Length == 0 && x != split.Length)
+							sb.Append(@"\'");
+						else if(s.Length == 1)
+						{
+							if(s.Substring(0, 1) != @"\")
+							{
+								sb.Append(s);
+								sb.Append(@"\'");
+							}
+							else
+								sb.Append(@"\ \'");
+						}
+						else
+						{
+							int i = 0;
+							string ss = s;
+
+							for(;;)
+							{
+								if(ss.Length > 0 && ss.Substring(ss.Length-1) != @"\")
+								{
+									if(ss.Length-1 > 0)
+										sb.Append(ss.Substring(0, ss.Length));
+
+									for(int a = 0; a < i; a++)
+										sb.Append(@"\");
+
+									if(x != split.Length && i % 2 == 0)
+										sb.Append(@"\'");
+									else if(x != split.Length)
+										sb.Append(@" \'");
+
+									break;
+								}
+								else if(ss.Length <= 0)
+								{
+									for(int a = 0; a < i; a++)
+										sb.Append(@"\");
+
+									if(x != split.Length && i % 2 == 0)
+										sb.Append(@"\'");
+									else if(x != split.Length)
+										sb.Append(@" \'");
+
+									break;
+								}
+
+								i++;
+								ss = ss.Remove(ss.Length-1);
+							}
+						}
+					}
+
+					text = sb.ToString();
+				}
+			}
 			return text;
 		}
 
