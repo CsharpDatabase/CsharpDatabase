@@ -48,7 +48,7 @@ namespace CsharpDatabase.Extensions
 		/// </returns>
 		public static bool IsOfType(this object obj, Type type)
 		{
-			if(obj == null)
+			if(obj.IsNull())
 				return false;
 
 			return (obj.GetType() == type);

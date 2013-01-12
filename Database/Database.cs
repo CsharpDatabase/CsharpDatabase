@@ -203,6 +203,7 @@ namespace CsharpDatabase
 					text = sb.ToString();
 				}
 			}
+
 			return text;
 		}
 
