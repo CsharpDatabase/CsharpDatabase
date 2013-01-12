@@ -22,63 +22,64 @@ using System.Runtime.Serialization;
 
 namespace CsharpDatabase.Exceptions
 {
-   sealed class CDatabaseException : Exception
-   {
-      /// <summary>
-      /// Initializes a new instance.
-      /// </summary>
-      public CDatabaseException()
-      {
-      }
+	[Serializable]
+	sealed class CDatabaseException : Exception
+	{
+		/// <summary>
+		/// Initializes a new instance.
+		/// </summary>
+		public CDatabaseException()
+		{
+		}
 
-      /// <summary>
-      /// Initializes a new instance with a specified error message.
-      /// </summary>
-      /// <param name="message">The message that describes the error.</param>
-      public CDatabaseException(string message) : base(message)
-      {
-      }
+		/// <summary>
+		/// Initializes a new instance with a specified error message.
+		/// </summary>
+		/// <param name="message">The message that describes the error.</param>
+		public CDatabaseException(string message) : base(message)
+		{
+		}
 
-      /// <summary>
-      /// Initializes a new instance with a reference to the inner 
-      /// exception that is the cause of this exception.
-      /// </summary>
-      /// <param name="innerException">
-      /// The exception that is the cause of the current exception, 
-      /// or a null reference if no inner exception is specified.
-      /// </param>
-      public CDatabaseException(Exception innerException) : base(null, innerException)
-      {
-      }
+		/// <summary>
+		/// Initializes a new instance with a reference to the inner 
+		/// exception that is the cause of this exception.
+		/// </summary>
+		/// <param name="innerException">
+		/// The exception that is the cause of the current exception, 
+		/// or a null reference if no inner exception is specified.
+		/// </param>
+		public CDatabaseException(Exception innerException) : base(null, innerException)
+		{
+		}
 
-      /// <summary>
-      /// Initializes a new instance with a specified error message and a 
-      /// reference to the inner exception that is the cause of this exception.
-      /// </summary>
-      /// <param name="message">The message that describes the error.</param>
-      /// <param name="innerException">
-      /// The exception that is the cause of the current exception, 
-      /// or a null reference if no inner exception is specified.
-      /// </param>
-      public CDatabaseException(string message, Exception innerException) : base(message, innerException)
-      {
-      }
+		/// <summary>
+		/// Initializes a new instance with a specified error message and a 
+		/// reference to the inner exception that is the cause of this exception.
+		/// </summary>
+		/// <param name="message">The message that describes the error.</param>
+		/// <param name="innerException">
+		/// The exception that is the cause of the current exception, 
+		/// or a null reference if no inner exception is specified.
+		/// </param>
+		public CDatabaseException(string message, Exception innerException) : base(message, innerException)
+		{
+		}
 
-      /// <summary>
-      /// Initializes a new instance with serialized data.
-      /// </summary>
-      /// <param name="info">
-      /// The <see cref="System.Runtime.Serialization.SerializationInfo"/> that holds the 
-      /// serialized object data about the exception being thrown.
-      /// </param>
-      /// <param name="context">
-      /// The <see cref="System.Runtime.Serialization.StreamingContext"/> that contains 
-      /// contextual information about the source or destination.
-      /// </param>
-      /// <exception cref="System.ArgumentNullException">The info parameter is null.</exception>
-      /// <exception cref="System.Runtime.Serialization.SerializationException">The class name is null or System.Exception.HResult is zero (0).</exception>
-      public CDatabaseException(SerializationInfo info, StreamingContext context) : base(info, context)
-      {
-      }
-   }
+		/// <summary>
+		/// Initializes a new instance with serialized data.
+		/// </summary>
+		/// <param name="info">
+		/// The <see cref="System.Runtime.Serialization.SerializationInfo"/> that holds the 
+		/// serialized object data about the exception being thrown.
+		/// </param>
+		/// <param name="context">
+		/// The <see cref="System.Runtime.Serialization.StreamingContext"/> that contains 
+		/// contextual information about the source or destination.
+		/// </param>
+		/// <exception cref="System.ArgumentNullException">The info parameter is null.</exception>
+		/// <exception cref="System.Runtime.Serialization.SerializationException">The class name is null or System.Exception.HResult is zero (0).</exception>
+		public CDatabaseException(SerializationInfo info, StreamingContext context) : base(info, context)
+		{
+		}
+	}
 }
