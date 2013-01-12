@@ -232,5 +232,10 @@ namespace CsharpDatabase
 				return false;
 			}
 		}
+
+		public bool IsCreatedTable(string Table)
+		{
+			return !Query(string.Format("SELECT * FROM {0}", Table), false).IsNull();
+		}
 	}
 }
