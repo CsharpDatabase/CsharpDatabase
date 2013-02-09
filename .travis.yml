@@ -6,9 +6,11 @@
 language: c
 
 # Mono
-install: sudo apt-get install mono-devel
+install:
+ - sudo apt-get install -qq mono-devel
 
-script: ./build.sh release
+script:
+ - ./build.sh release
 
 # Notify if needed
 notifications:
