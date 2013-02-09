@@ -7,7 +7,7 @@ language: c
 
 # Mono
 install:
- - sudo apt-get install -qq mono-devel
+ - sudo apt-get install -qq mono-devel mono-xbuild
 
 script:
  - ./build.sh release
