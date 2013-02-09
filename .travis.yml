@@ -7,10 +7,15 @@ language: c
 
 # Mono
 install:
- - sudo apt-get install -qq mono-devel mono-xbuild
+ - sudo apt-get install mono-devel mono-xbuild
 
 script:
  - ./build.sh release
+
+# Only watch the master branch
+branches:
+  only:
+    - master
 
 # Notify if needed
 notifications:
