@@ -19,4 +19,6 @@ branches:
 
 # Notify if needed
 notifications:
-  irc: "irc.rizon.net#schumix"
+  irc:
+    channels:
+      - "irc.rizon.net#schumix"
