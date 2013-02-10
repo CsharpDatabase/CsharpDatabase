@@ -1,4 +1,4 @@
-# CsharpDatabase
+# CsharpDatabase [![Build Status](https://travis-ci.org/megax/CsharpDatabase.png?branch=master)](https://travis-ci.org/megax/CsharpDatabase)
 
 # Ismertetés
 
