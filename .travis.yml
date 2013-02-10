@@ -7,7 +7,7 @@ language: c
 
 # Mono
 install:
- - sudo apt-get install cmake mono-devel mono-dmcs
+ - sudo apt-get install mono-devel mono-dmcs
 
 script:
  - ./build.sh release
@@ -21,4 +21,4 @@ branches:
 notifications:
   irc:
     channels:
-      - "irc.rizon.net#schumix"
+      - "irc.rizon.net#hun_bot"
