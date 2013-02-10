@@ -7,7 +7,7 @@ language: c
 
 # Mono
 install:
- - sudo apt-get install cmake mono-devel mono-gmcs
+ - sudo apt-get install cmake mono-devel mono-dmcs
 
 script:
  - ./build.sh release

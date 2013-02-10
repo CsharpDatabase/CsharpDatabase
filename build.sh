@@ -9,11 +9,11 @@ else
 fi
 
 if [ "$1" = "" ]; then
-	xbuild /p:Configuration="Debug" /p:Platform=$build_platform LuaInterface.sln
+	xbuild /p:Configuration="Debug" /p:Platform=$build_platform CsharpDatabase.sln
 else
 	if [ $build_conf = "release" ]; then
-		xbuild /p:Configuration="Release" /p:Platform=$build_platform LuaInterface.sln
+		xbuild /p:Configuration="Release" /p:Platform=$build_platform CsharpDatabase.sln
 	else
-		xbuild /p:Configuration="Debug" /p:Platform=$build_platform LuaInterface.sln
+		xbuild /p:Configuration="Debug" /p:Platform=$build_platform CsharpDatabase.sln
 	fi
 fi
