@@ -1,0 +1,3 @@
+[submodule "External/csharp-sqlite"]
+	path = External/csharp-sqlite
+	url = https://github.com/CsharpDatabase/csharp-sqlite.git
