@@ -51,6 +51,11 @@ dnl package checks, per config
 
 
 AC_CONFIG_FILES([
+External/csharp-sqlite/Community.CsharpSqlite/community.csharpsqlite.pc
+External/csharp-sqlite/Community.CsharpSqlite/Makefile
+External/csharp-sqlite/Community.CsharpSqlite.SQLiteClient/community.csharpsqlite.sqliteclient.pc
+External/csharp-sqlite/Community.CsharpSqlite.SQLiteClient/Makefile
+External/csharp-sqlite/Makefile
 Database/csharpdatabase.pc
 Database/Makefile
 Makefile

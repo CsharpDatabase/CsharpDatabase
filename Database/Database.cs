@@ -21,7 +21,7 @@ using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Data;
-using System.Data.SQLite;
+using Community.CsharpSqlite.SQLiteClient;
 using System.Threading;
 using MySql.Data;
 using CsharpDatabase.Exceptions;

@@ -35,9 +35,7 @@
     <Reference Include="MySql.Data">
       <HintPath>..\Dependencies\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SQLite">
-      <HintPath>..\Dependencies\System.Data.SQLite.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,8 +52,14 @@
   <ItemGroup>
     <None Include="..\Dependencies\sqlite3.dll">
       <Link>sqlite3.dll</Link>
-      <Gettext-ScanForTranslations>false</Gettext-ScanForTranslations>
+      <Gettext-ScanForTranslations>False</Gettext-ScanForTranslations>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\External\csharp-sqlite\Community.CsharpSqlite.SQLiteClient\Community.CsharpSqlite.SQLiteClient.csproj">
+      <Project>{7BC68E61-C64C-488C-975F-1E2248383B80}</Project>
+      <Name>Community.CsharpSqlite.SQLiteClient</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

@@ -20,8 +20,8 @@
 using System;
 using System.Threading;
 using System.Data;
-using System.Data.SQLite;
 using System.Text.RegularExpressions;
+using Community.CsharpSqlite.SQLiteClient;
 using CsharpDatabase.Exceptions;
 using CsharpDatabase.Extensions;
 using CsharpDatabase.Localization;
@@ -31,7 +31,7 @@ namespace CsharpDatabase
 	sealed class SQLite
 	{
 		private readonly LocalizationConsole sLConsole = Singleton<LocalizationConsole>.Instance;
-		private SQLiteConnection Connection;
+		private SqliteConnection Connection;
 
 		public SQLite(string file)
 		{
@@ -48,11 +48,11 @@ namespace CsharpDatabase
 		{
 			try
 			{
-				Connection = new SQLiteConnection("Data Source=" + file);
+				Connection = new SqliteConnection("Data Source=" + file);
 				Connection.Open();
 				return true;
 			}
-			catch(SQLiteException s)
+			catch(SqliteException s)
 			{
 				throw new CDatabaseException(s.Message);
 			}
@@ -68,7 +68,7 @@ namespace CsharpDatabase
 			try
 			{
 				IsConnect();
-				var adapter = new SQLiteDataAdapter();
+				var adapter = new SqliteDataAdapter();
 				var command = Connection.CreateCommand();
 				command.CommandText = query;
 				adapter.SelectCommand = command;
@@ -81,7 +81,7 @@ namespace CsharpDatabase
 
 				return table;
 			}
-			catch(SQLiteException s)
+			catch(SqliteException s)
 			{
 				Crash(s, logerror);
 				return null;
@@ -108,7 +108,7 @@ namespace CsharpDatabase
 				command.CommandText = sql;
 				command.ExecuteNonQuery();
 			}
-			catch(SQLiteException s)
+			catch(SqliteException s)
 			{
 				Crash(s, logerror);
 			}
@@ -121,13 +121,13 @@ namespace CsharpDatabase
 				if(Connection.State != ConnectionState.Open)
 					Connection.Open();
 			}
-			catch(SQLiteException s)
+			catch(SqliteException s)
 			{
 				Crash(s, true);
 			}
 		}
 
-		private void Crash(SQLiteException s, bool logerror)
+		private void Crash(SqliteException s, bool logerror)
 		{
 			if(logerror)
 				throw new CDatabaseException(string.Format(sLConsole.SQLite("Text2"), s.Message));
