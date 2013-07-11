@@ -50,13 +50,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <None Include="..\Dependencies\sqlite3.dll">
-      <Link>sqlite3.dll</Link>
-      <Gettext-ScanForTranslations>False</Gettext-ScanForTranslations>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\External\csharp-sqlite\Community.CsharpSqlite.SQLiteClient\Community.CsharpSqlite.SQLiteClient.csproj">
       <Project>{7BC68E61-C64C-488C-975F-1E2248383B80}</Project>
       <Name>Community.CsharpSqlite.SQLiteClient</Name>

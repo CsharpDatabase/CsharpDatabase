@@ -48,7 +48,7 @@ namespace CsharpDatabase
 		{
 			try
 			{
-				Connection = new SqliteConnection("Data Source=" + file);
+				Connection = new SqliteConnection(string.Format("Data Source=file:{0}", file));
 				Connection.Open();
 				return true;
 			}
