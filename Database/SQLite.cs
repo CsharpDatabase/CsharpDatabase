@@ -20,8 +20,8 @@
 using System;
 using System.Threading;
 using System.Data;
+using System.Data.SQLite;
 using System.Text.RegularExpressions;
-using Community.CsharpSqlite.SQLiteClient;
 using CsharpDatabase.Exceptions;
 using CsharpDatabase.Extensions;
 using CsharpDatabase.Localization;
@@ -31,7 +31,7 @@ namespace CsharpDatabase
 	sealed class SQLite
 	{
 		private readonly LocalizationConsole sLConsole = Singleton<LocalizationConsole>.Instance;
-		private SqliteConnection Connection;
+		private SQLiteConnection Connection;
 
 		public SQLite(string file)
 		{
@@ -48,11 +48,11 @@ namespace CsharpDatabase
 		{
 			try
 			{
-				Connection = new SqliteConnection(string.Format("Data Source=file:{0}", file));
+				Connection = new SQLiteConnection(string.Format("Data Source={0}", file));
 				Connection.Open();
 				return true;
 			}
-			catch(SqliteException s)
+			catch(SQLiteException s)
 			{
 				throw new CDatabaseException(s.Message);
 			}
@@ -68,7 +68,7 @@ namespace CsharpDatabase
 			try
 			{
 				IsConnect();
-				var adapter = new SqliteDataAdapter();
+				var adapter = new SQLiteDataAdapter();
 				var command = Connection.CreateCommand();
 				command.CommandText = query;
 				adapter.SelectCommand = command;
@@ -81,7 +81,7 @@ namespace CsharpDatabase
 
 				return table;
 			}
-			catch(SqliteException s)
+			catch(SQLiteException s)
 			{
 				Crash(s, logerror);
 				return null;
@@ -108,7 +108,7 @@ namespace CsharpDatabase
 				command.CommandText = sql;
 				command.ExecuteNonQuery();
 			}
-			catch(SqliteException s)
+			catch(SQLiteException s)
 			{
 				Crash(s, logerror);
 			}
@@ -121,13 +121,13 @@ namespace CsharpDatabase
 				if(Connection.State != ConnectionState.Open)
 					Connection.Open();
 			}
-			catch(SqliteException s)
+			catch(SQLiteException s)
 			{
 				Crash(s, true);
 			}
 		}
 
-		private void Crash(SqliteException s, bool logerror)
+		private void Crash(SQLiteException s, bool logerror)
 		{
 			if(logerror)
 				throw new CDatabaseException(string.Format(sLConsole.SQLite("Text2"), s.Message));

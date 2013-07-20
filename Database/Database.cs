@@ -21,7 +21,7 @@ using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Data;
-using Community.CsharpSqlite.SQLiteClient;
+using System.Data.SQLite;
 using System.Threading;
 using MySql.Data;
 using CsharpDatabase.Exceptions;
@@ -30,13 +30,6 @@ using CsharpDatabase.Localization;
 
 namespace CsharpDatabase
 {
-	public enum DatabaseType
-	{
-		MySql,
-		SQLite,
-		None
-	}
-
 	public sealed class Database
 	{
 		private readonly LocalizationConsole sLConsole = Singleton<LocalizationConsole>.Instance;
