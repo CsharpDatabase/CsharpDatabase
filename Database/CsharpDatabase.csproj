@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -9,7 +9,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>CsharpDatabase</RootNamespace>
     <AssemblyName>CsharpDatabase</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,4 +50,10 @@
     <Compile Include="DatabaseType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\External\CsharpSQLite\System.Data.SQLite\System.Data.SQLite.csproj">
+      <Project>{F1653F20-D47D-4F29-8C55-3C835542AF5F}</Project>
+      <Name>System.Data.SQLite</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
