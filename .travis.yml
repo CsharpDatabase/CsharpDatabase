@@ -9,8 +9,12 @@ language: c
 install:
  - sudo apt-get install mono-devel mono-dmcs
 
-script:
- - ./build.sh
+env:
+ matrix:
+  - ./build.sh
+    env: Release
+  - ./build.sh debug
+    env: Debug
 
 # Only watch the master branch
 branches:
