@@ -12,9 +12,7 @@ install:
 env:
  matrix:
   - ./build.sh
-    env: Release
   - ./build.sh debug
-    env: Debug
 
 # Only watch the master branch
 branches:
