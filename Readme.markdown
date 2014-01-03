@@ -1,4 +1,4 @@
-# CsharpDatabase [![Build Status](https://travis-ci.org/megax/CsharpDatabase.png?branch=master)](https://travis-ci.org/megax/CsharpDatabase) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/CsharpDatabase/csharpdatabase/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+# CsharpDatabase [![Build Status](https://travis-ci.org/CsharpDatabase/CsharpDatabase.png?branch=master)](https://travis-ci.org/CsharpDatabase/CsharpDatabase) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/CsharpDatabase/csharpdatabase/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 # Ismertetés
 
