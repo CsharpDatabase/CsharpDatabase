@@ -11,7 +11,7 @@ ASSEMBLY_MDB = $(ASSEMBLY).mdb
 COMPILE_TARGET = library
 PROJECT_REFERENCES =  \
 	../External/CsharpSQLite/Run/Debug/System.Data.SQLite.dll \
-	../External/MySql.Data/Source/MySql.Data/bin/$(TargetFrameworkVersion)/Debug/MySql.Data.dll
+	../External/MySql.Data/Source/MySql.Data/bin/Debug/MySql.Data.dll
 BUILD_DIR = ../Bin/Debug
 
 CSHARPDATABASE_DLL_MDB_SOURCE=../Bin/Debug/CsharpDatabase.dll.mdb
@@ -19,8 +19,8 @@ CSHARPDATABASE_DLL_MDB=$(BUILD_DIR)/CsharpDatabase.dll.mdb
 SYSTEM_DATA_SQLITE_DLL_SOURCE=../External/CsharpSQLite/Run/Debug/System.Data.SQLite.dll
 SYSTEM_DATA_SQLITE_DLL_MDB_SOURCE=../External/CsharpSQLite/Run/Debug/System.Data.SQLite.dll.mdb
 SYSTEM_DATA_SQLITE_DLL_MDB=$(BUILD_DIR)/System.Data.SQLite.dll.mdb
-MYSQL_DATA_DLL_SOURCE=../External/MySql.Data/Source/MySql.Data/bin/$(TargetFrameworkVersion)/Debug/MySql.Data.dll
-MYSQL_DATA_DLL_MDB_SOURCE=../External/MySql.Data/Source/MySql.Data/bin/$(TargetFrameworkVersion)/Debug/MySql.Data.dll.mdb
+MYSQL_DATA_DLL_SOURCE=../External/MySql.Data/Source/MySql.Data/bin/Debug/MySql.Data.dll
+MYSQL_DATA_DLL_MDB_SOURCE=../External/MySql.Data/Source/MySql.Data/bin/Debug/MySql.Data.dll.mdb
 MYSQL_DATA_DLL_MDB=$(BUILD_DIR)/MySql.Data.dll.mdb
 
 endif
@@ -33,13 +33,13 @@ ASSEMBLY_MDB =
 COMPILE_TARGET = library
 PROJECT_REFERENCES =  \
 	../External/CsharpSQLite/Run/Release/System.Data.SQLite.dll \
-	../External/MySql.Data/Source/MySql.Data/bin/$(TargetFrameworkVersion)/Release/MySql.Data.dll
+	../External/MySql.Data/Source/MySql.Data/bin/Release/MySql.Data.dll
 BUILD_DIR = ../Bin/Release
 
 CSHARPDATABASE_DLL_MDB=
 SYSTEM_DATA_SQLITE_DLL_SOURCE=../External/CsharpSQLite/Run/Release/System.Data.SQLite.dll
 SYSTEM_DATA_SQLITE_DLL_MDB=
-MYSQL_DATA_DLL_SOURCE=../External/MySql.Data/Source/MySql.Data/bin/$(TargetFrameworkVersion)/Release/MySql.Data.dll
+MYSQL_DATA_DLL_SOURCE=../External/MySql.Data/Source/MySql.Data/bin/Release/MySql.Data.dll
 MYSQL_DATA_DLL_MDB=
 
 endif
