@@ -53,6 +53,9 @@ dnl package checks, per config
 AC_CONFIG_FILES([
 External/CsharpSQLite/System.Data.SQLite/system.data.sqlite.pc
 External/CsharpSQLite/System.Data.SQLite/Makefile
+External/MySql.Data/Source/MySql.Data/mysql.data.schumix.pc
+External/MySql.Data/Source/MySql.Data/Makefile
+External/Makefile
 Database/csharpdatabase.pc
 Database/Makefile
 Makefile

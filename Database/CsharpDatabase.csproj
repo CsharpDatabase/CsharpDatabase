@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{70FE9C4B-E9A0-4AF8-A74D-F1604D0C58F1}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -32,9 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="MySql.Data">
-      <HintPath>..\Dependencies\MySql.Data.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +51,10 @@
     <ProjectReference Include="..\External\CsharpSQLite\System.Data.SQLite\System.Data.SQLite.csproj">
       <Project>{F1653F20-D47D-4F29-8C55-3C835542AF5F}</Project>
       <Name>System.Data.SQLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External\MySql.Data\Source\MySql.Data\MySql.Data.Schumix.csproj">
+      <Project>{E9DF5ED1-4CBD-4226-B931-9A51610AC14D}</Project>
+      <Name>MySql.Data.Schumix</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

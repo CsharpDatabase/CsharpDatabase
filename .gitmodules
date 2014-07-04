@@ -1,3 +1,6 @@
 [submodule "External/CsharpSQLite"]
 	path = External/CsharpSQLite
 	url = git://github.com/CsharpDatabase/CsharpSQLite.git
+[submodule "External/MySql.Data"]
+	path = External/MySql.Data
+	url = git://github.com/CsharpDatabase/MySql.Data.git

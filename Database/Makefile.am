@@ -10,15 +10,18 @@ ASSEMBLY = ../Bin/Debug/CsharpDatabase.dll
 ASSEMBLY_MDB = $(ASSEMBLY).mdb
 COMPILE_TARGET = library
 PROJECT_REFERENCES =  \
-	../External/CsharpSQLite/Run/Debug/System.Data.SQLite.dll
+	../External/CsharpSQLite/Run/Debug/System.Data.SQLite.dll \
+	../External/MySql.Data/Source/MySql.Data/bin/$(TargetFrameworkVersion)/Debug/MySql.Data.dll
 BUILD_DIR = ../Bin/Debug
 
 CSHARPDATABASE_DLL_MDB_SOURCE=../Bin/Debug/CsharpDatabase.dll.mdb
 CSHARPDATABASE_DLL_MDB=$(BUILD_DIR)/CsharpDatabase.dll.mdb
-MYSQL_DATA_DLL_SOURCE=../Dependencies/MySql.Data.dll
 SYSTEM_DATA_SQLITE_DLL_SOURCE=../External/CsharpSQLite/Run/Debug/System.Data.SQLite.dll
 SYSTEM_DATA_SQLITE_DLL_MDB_SOURCE=../External/CsharpSQLite/Run/Debug/System.Data.SQLite.dll.mdb
 SYSTEM_DATA_SQLITE_DLL_MDB=$(BUILD_DIR)/System.Data.SQLite.dll.mdb
+MYSQL_DATA_DLL_SOURCE=../External/MySql.Data/Source/MySql.Data/bin/$(TargetFrameworkVersion)/Debug/MySql.Data.dll
+MYSQL_DATA_DLL_MDB_SOURCE=../External/MySql.Data/Source/MySql.Data/bin/$(TargetFrameworkVersion)/Debug/MySql.Data.dll.mdb
+MYSQL_DATA_DLL_MDB=$(BUILD_DIR)/MySql.Data.dll.mdb
 
 endif
 
@@ -29,13 +32,15 @@ ASSEMBLY = ../Bin/Release/CsharpDatabase.dll
 ASSEMBLY_MDB = 
 COMPILE_TARGET = library
 PROJECT_REFERENCES =  \
-	../External/CsharpSQLite/Run/Release/System.Data.SQLite.dll
+	../External/CsharpSQLite/Run/Release/System.Data.SQLite.dll \
+	../External/MySql.Data/Source/MySql.Data/bin/$(TargetFrameworkVersion)/Release/MySql.Data.dll
 BUILD_DIR = ../Bin/Release
 
 CSHARPDATABASE_DLL_MDB=
-MYSQL_DATA_DLL_SOURCE=../Dependencies/MySql.Data.dll
 SYSTEM_DATA_SQLITE_DLL_SOURCE=../External/CsharpSQLite/Run/Release/System.Data.SQLite.dll
 SYSTEM_DATA_SQLITE_DLL_MDB=
+MYSQL_DATA_DLL_SOURCE=../External/MySql.Data/Source/MySql.Data/bin/$(TargetFrameworkVersion)/Release/MySql.Data.dll
+MYSQL_DATA_DLL_MDB=
 
 endif
 
@@ -44,9 +49,10 @@ SATELLITE_ASSEMBLY_NAME=$(notdir $(basename $(ASSEMBLY))).resources.dll
 
 PROGRAMFILES = \
 	$(CSHARPDATABASE_DLL_MDB) \
-	$(MYSQL_DATA_DLL) \
 	$(SYSTEM_DATA_SQLITE_DLL) \
-	$(SYSTEM_DATA_SQLITE_DLL_MDB)  
+	$(SYSTEM_DATA_SQLITE_DLL_MDB) \
+	$(MYSQL_DATA_DLL) \
+	$(MYSQL_DATA_DLL_MDB)  
 
 LINUX_PKGCONFIG = \
 	$(CSHARPDATABASE_PC)  
@@ -80,20 +86,20 @@ REFERENCES =  \
 	System.Data \
 	System.Xml
 
-DLL_REFERENCES =  \
-	../Dependencies/MySql.Data.dll
+DLL_REFERENCES = 
 
 CLEANFILES = $(PROGRAMFILES) $(LINUX_PKGCONFIG) 
 
 include $(top_srcdir)/Makefile.include
 
-MYSQL_DATA_DLL = $(BUILD_DIR)/MySql.Data.dll
 SYSTEM_DATA_SQLITE_DLL = $(BUILD_DIR)/System.Data.SQLite.dll
+MYSQL_DATA_DLL = $(BUILD_DIR)/MySql.Data.dll
 CSHARPDATABASE_PC = $(BUILD_DIR)/csharpdatabase.pc
 
-$(eval $(call emit-deploy-target,MYSQL_DATA_DLL))
 $(eval $(call emit-deploy-target,SYSTEM_DATA_SQLITE_DLL))
 $(eval $(call emit-deploy-target,SYSTEM_DATA_SQLITE_DLL_MDB))
+$(eval $(call emit-deploy-target,MYSQL_DATA_DLL))
+$(eval $(call emit-deploy-target,MYSQL_DATA_DLL_MDB))
 $(eval $(call emit-deploy-wrapper,CSHARPDATABASE_PC,csharpdatabase.pc))
 
 
