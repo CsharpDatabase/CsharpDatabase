@@ -24,6 +24,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Threading;
 using MySql.Data;
+using MySql.Data.MySqlClient;
 using CsharpDatabase.Exceptions;
 using CsharpDatabase.Extensions;
 using CsharpDatabase.Localization;
